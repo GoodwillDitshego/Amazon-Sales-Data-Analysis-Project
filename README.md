@@ -30,5 +30,7 @@ Some other business questions that were answered using SQL include:
 * payment_method distribuutions
 * average rating by category
   
-I shall attach a sample of SQL Queries below. For a full file, please find the full SQL file with all queries in the SQL files folder or download here [PROJECT QUERIES.sql](https://github.com/user-attachments/files/25427367/PROJECT.QUERIES.sql)
+I shall attach a sample of SQL Queries below. For a full file, please find the full SQL file with all queries in the SQL files folder or download here [PROJECT QUERIES.sql](https://github.com/user-attachments/files/25427367/PROJECT.QUERIES.sql). Sample SQL queries for monthly revenue and KPIs:  
+``` SELECT MONTHNAME(order_date) AS month, SUM(total_revenue) AS monthly_revenue FROM amazon_sales_dataset GROUP BY month ORDER BY monthly_revenue; ```
 
+``` SELECT ROUND(SUM(total_revenue), 2) AS total_revenue, COUNT(DISTINCT order_id) AS total_orders, COUNT(DISTINCT product_id) AS total_products, ROUND(AVG(total_revenue), 2) AS avg_order_valueFROM amazon_sales_dataset; ```
