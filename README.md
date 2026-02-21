@@ -30,5 +30,24 @@ Some other business questions that were answered using SQL include:
 * payment_method distribuutions
 * average rating by category
   
-I shall attach a sample of SQL Queries below. For a full file, please find the full SQL file with all queries in the SQL files folder or download here [PROJECT QUERIES.sql](https://github.com/user-attachments/files/25427367/PROJECT.QUERIES.sql)
+I shall attach a sample of SQL Queries below. For a full file, please find the full SQL file with all queries in the SQL files folder or download here [PROJECT QUERIES.sql](https://github.com/user-attachments/files/25427367/PROJECT.QUERIES.sql). Sample SQL queries for monthly revenue and KPIs:  
+``` SELECT MONTHNAME(order_date) AS month, SUM(total_revenue) AS monthly_revenue FROM amazon_sales_dataset GROUP BY month ORDER BY monthly_revenue; ```
 
+``` SELECT ROUND(SUM(total_revenue), 2) AS total_revenue, COUNT(DISTINCT order_id) AS total_orders, COUNT(DISTINCT product_id) AS total_products, ROUND(AVG(total_revenue), 2) AS avg_order_valueFROM amazon_sales_dataset; ```  
+### 3. Excel Dashboard Creation  
+Exported each query result to Excel and created:  
+**Visualisations:**  
+1. **Monthly Revenue** line chart which tracks revenue trends over time
+2. **Revenue by category** bar chart which compares performance across product_categories
+3. **Revenue by region** bar graph which gives geographic sales distribution
+4. **Payment methods** doughnut chart which gives percentage breakdown of payment types  
+**Dashboard features:**
+* Interactive slicers
+* KPI cards with key metrics
+* Consistent colour scheme with a clean, professional layout
+## Insights and Findings  
+* Peak sales revenue was identified in January and August with the lowest sales revenue identified to be in February which was a difference of about **$USD 400 000**.
+* Top-performing product category by revenue was for beauty products
+* Regional markets had closely similar sales with the Middle East region having slightly higher overall revenue.
+* Payment method breakdown gave most orders payed using **Wallet** as the most popular payment method among customers and the use of a **Credit card** was the least popular. The difference was not by a long way as the payment method distribution had each method having about a 20% chance of being used to pay for an order.
+* The average rating by category gave an average category of about 3 for all categories with the book category having the highest rating at 3.02 and the lowest average rated category being the Beauty category at 2.99. Not much of a difference, which means customers buying beauty products are just as satisfied with their products as customers buying books.
